@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BahinBhau.in - Authentic Homemade Pickles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --secondary: #66bb6a;
+            --light: #f1f8e9;
+            --dark: #1b5e20;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .announcement-banner {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .announcement-banner a {
+            color: white;
+            background-color: #1b5e20;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            margin: 0 0.4rem;
+            text-decoration: none;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header img {
+            max-width: 80px;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .under-construction-badge {
+            background-color: #e53935;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-top: 0.8rem;
+            color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .container-wrapper {
+            display: flex;
+            justify-content: center;
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 2rem 1rem;
+        }
+
+        .product-slider {
+            margin: 3rem auto;
+            position: relative;
+            width: 90%;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 1rem;
+            margin: 0 10px;
+            height: 400px;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-images {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f9f9f9;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .product-image.active {
+            opacity: 1;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 0.8rem 0 0.4rem;
+        }
+
+        .in-stock {
+            background-color: #43a047;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0 auto 1rem;
+            display: inline-block;
+        }
+
+        .slick-prev,
+        .slick-next {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slick-prev {
+            left: -15px;
+        }
+
+        .slick-next {
+            right: -15px;
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            font-size: 22px;
+            color: var(--primary);
+        }
+
+        .slick-dots {
+            bottom: -30px;
+        }
+
+        .contact-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-method {
+            display: inline-block;
+            margin: 0 1.5rem;
+            vertical-align: top;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .tagline {
+                margin-bottom: 0.5rem;
+            }
+            
+            .contact-method {
+                display: block;
+                margin: 1.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1.2rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .product-slider {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="announcement-banner">
+        🚧 This website is under development. For now, we are taking <strong>offline orders only</strong> —
+        <a href="tel:+919130745878">Call</a> or
+        <a href="https://wa.me/919130745878" target="_blank">WhatsApp</a>
+    </div>
+
+    <header>
+        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753103036/jacai6255aq673sm2orm.jpg"
+            alt="BahinBhau Logo">
+        <div class="logo">BahinBhau.in</div>
+        <div class="tagline">Authentic Homemade Pickles</div>
+        <div class="under-construction-badge">🚧 Under Development</div>
+    </header>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="product-slider">
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091501/amala/aed6kq8o0t00s0cvrcpq.jpg"
+                            class="product-image active" alt="Amla Pickle">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091506/amala/meokt5foxn451vuq49sy.jpg"
+                            class="product-image" alt="Amla Pickle">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091506/amala/uwknutqnfq02zq9xfdbg.jpg"
+                            class="product-image" alt="Amla Pickle">
+                    </div>
+                    <h3 class="product-name">Amla Pickle</h3>
+                    <div class="in-stock">In Stock</div>
+                    <p>For pricing and orders:</p>
+                    <p><a href="#contact">Call or WhatsApp</a></p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091310/tomato/pvrgtcbzongmx6xcamnf.jpg"
+                            class="product-image active" alt="Tomato Pickle">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091322/tomato/nvczjtas0vu0muoummvx.jpg"
+                            class="product-image" alt="Tomato Pickle">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091321/tomato/ksjnsotrc7bb7xbp30yv.jpg"
+                            class="product-image" alt="Tomato Pickle">
+                    </div>
+                    <h3 class="product-name">Tomato Pickle</h3>
+                    <div class="in-stock">In Stock</div>
+                    <p>For pricing and orders:</p>
+                    <p><a href="#contact">Call or WhatsApp</a></p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091460/green%20chillie/peeudm3v5ljctleyfgmh.jpg"
+                            class="product-image active" alt="Green Chillie Pickle">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091465/green%20chillie/hprsaurejohphtg7jkdw.jpg"
+                            class="product-image" alt="Green Chillie Pickle">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091464/green%20chillie/ip9lmbn4cshvwbknwwo0.jpg"
+                            class="product-image" alt="Green Chillie Pickle">
+                    </div>
+                    <h3 class="product-name">Green Chillie Pickle</h3>
+                    <div class="in-stock">In Stock</div>
+                    <p>For pricing and orders:</p>
+                    <p><a href="#contact">Call or WhatsApp</a></p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091046/red%20chilli/u2to9zhdugeq6qo5ckfj.jpg"
+                            class="product-image active" alt="Red Chillie Thecha">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091059/red%20chilli/buuqoyhoxss7twvrxnh3.jpg"
+                            class="product-image" alt="Red Chillie Thecha">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753091060/red%20chilli/hchitkvbavkichssmkfh.jpg"
+                            class="product-image" alt="Red Chillie Thecha">
+                    </div>
+                    <h3 class="product-name">Red Chillie Thecha</h3>
+                    <div class="in-stock">In Stock</div>
+                    <p>For pricing and orders:</p>
+                    <p><a href="#contact">Call or WhatsApp</a></p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-images">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753092063/lemon/w3pzuando1lbi51ysk6e.jpg"
+                            class="product-image active" alt="Lemon Pickle">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753092066/lemon/ruzfkirxu5ovs4hjiuhq.jpg"
+                            class="product-image" alt="Lemon Pickle">
+                        <img src="https://res.cloudinary.com/dfloi7bv1/image/upload/v1753092066/lemon/hb5cqgfaslx0u1tjjaf7.jpg"
+                            class="product-image" alt="Lemon Pickle">
+                    </div>
+                    <h3 class="product-name">Lemon Pickle</h3>
+                    <div class="in-stock">In Stock</div>
+                    <p>For pricing and orders:</p>
+                    <p><a href="#contact">Call or WhatsApp</a></p>
+                </div>
+            </div>
+
+            <div class="contact-section" id="contact">
+                <h2 class="contact-title">For Offline Orders Contact Us</h2>
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3>Call Us</h3>
+                    <p><a href="tel:+919130745878">+91 9130745878</a></p>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/919130745878" target="_blank">Chat on WhatsApp</a></p>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:rgaurav222001@gmail.com">rgaurav222001@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2024 BahinBhau.in. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Initialize product slider - simple one slide at a time
+            $('.product-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerMode: true,
+                centerPadding: '0',
+                prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: true,
+                            centerMode: true,
+                            centerPadding: '0',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+
+            // Image rotation for each product card
+            function rotateImages() {
+                $('.product-card').each(function () {
+                    const $images = $(this).find('.product-image');
+                    if ($images.length < 2) return; // Skip if only one image
+
+                    const $active = $(this).find('.product-image.active');
+                    let $next = $active.next('.product-image');
+
+                    if (!$next.length) {
+                        $next = $images.first();
+                    }
+
+                    $active.removeClass('active');
+                    $next.addClass('active');
+                });
+            }
+
+            // Rotate images every 3 seconds
+            setInterval(rotateImages, 1500);
+        });
+    </script>
+</body>
+
+</html>
